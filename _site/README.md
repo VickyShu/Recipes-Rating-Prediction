@@ -33,20 +33,12 @@ For this baseline model, we did not have any categorical features, so we did not
 <iframe src="assets/fig_log_min.html" width=800 height=600 frameBorder=0></iframe> 
 
 ### Performance
-<<<<<<< Updated upstream
-Our model achieved a training RMSE of 0.3715 and a testing RMSE of 0.5147. This level of accuracy indicates that the model has a reasonably good predictive capability. That is, if a recipe has a high average rating, it is more likely to receive similarly high ratings from new reviewers, keeping its high score. Our model's performance corroborates this theory, following the tendency of recipes with higher ratings to maintain higher future ratings.
-=======
-Our model achieved a training RMSE of 0.3715 and a testing RMSE of 0.3216, which is reasonably a good performance. We believe it is good because the average rating of a recipe is indeed related to the rating itself. That’s because people are easily influenced by others' thoughts. If a recipe has already got a higher rating, people tend to give higher ratings based on that.
->>>>>>> Stashed changes
-
+Our model achieved a training RMSE of 0.3715 and a testing RMSE of 0.5147. This level of RMSE indicates that the model has a reasonably good predictive capability. That is, if a recipe has a high average rating, it is more likely to receive similarly high ratings from new reviewers, keeping its high score. Our model's performance corroborates this theory, following the tendency of recipes with higher ratings to maintain higher future ratings.
 
 | Metric | Train RMSE | Test RMSE |
 |--------|-------------|-------------|
-<<<<<<< Updated upstream
 | 'RMSE' | 0.371539447765363 | 0.5147232717849082 |
-=======
-| 'RMSE' | 0.371539447765363 | 0.3215798723839845 |
->>>>>>> Stashed changes
+
 
 ---
 
