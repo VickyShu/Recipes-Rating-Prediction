@@ -78,7 +78,9 @@ As we can see from the plot below, our final model's performance was an improvem
 
 In our pursuit of developing a fair and equitable predictive model for recipe ratings, we pose a critical question: Does our model demonstrate differential performance for recipes with perfect 5-star ratings as opposed to those rated 4 stars or below?
 For this question, we divided our recipes into two different groups based on its rating.
+
 **GroupX:** Recipes with 5-star ratings.
+
 **GroupY:** Recipes with ratings of 4 stars or below.
 
 ### Permutation Test
