@@ -14,12 +14,6 @@ We chose rating as the response variable, which has five different classes from 
 ### **Evaluation Metrics**
 To evaluate the model’s performance, we will use metrics such as RMSE. That’s because there are lots of outliers in our features, like lots of time to prepare recipes. So we choose RMSE because it is sensitive to outliers. It will give a higher error value, signaling that these points are not being predicted accurately.
 
-### **Why these Features**
-<iframe src="assets/fig_average_rating.html" width=800 height=600 frameBorder=0></iframe>
-<iframe src="assets/fig_num_rating.html" width=800 height=600 frameBorder=0></iframe>
-<iframe src="assets/fig_average_user_rating.html" width=800 height=600 frameBorder=0></iframe>
-
-For reviews, we want to see if a review containing a word like ‘good’ would have a higher rating, or a review containing a word like ‘bad’ would have a lower rating. For the average rating of a recipe, we want to examine if a recipe with higher rating would receive a higher rating from people. For the number of ratings for each recipe, we want to study whether a recipe with a higher number of ratings possibly tends to receive higher ratings from people. For the user's average rating, we want to check if a person tends to give a higher rating just because he habitually gives high scores. For the minutes, we want to see if a higher rating recipe needs more time to prepare generally.
 
 ## Baseline Model
 
@@ -37,17 +31,30 @@ For this baseline model, we did not have any categorical features, so we did not
 <iframe src="assets/fig_log_min.html" width=800 height=600 frameBorder=0></iframe>
 
 ### Performance
-Our model achieved a training RMSE of 0.7143 and a testing RMSE of 0.7174, which is reasonably a good performance. We believe it is good because the average rating of a recipe is indeed related to the rating itself. That’s because people are easily influenced by others' thoughts. If a recipe has already got a higher rating, people tend to give higher ratings based on that.
+Our model achieved a training RMSE of 0.7143 and a testing RMSE of 0.6130, which is reasonably a good performance. We believe it is good because the average rating of a recipe is indeed related to the rating itself. That’s because people are easily influenced by others' thoughts. If a recipe has already got a higher rating, people tend to give higher ratings based on that.
 
 
-| Metric | Train Score | Test Score |
+| Metric | Train RMSE | Test RMSE |
 |--------|-------------|-------------|
-| 'RMSE' | 0.7143449388166899 | 0.7174320627167655 |
-
+| 'RMSE' | 0.7143449388166899 | 0.6130274904203801 |
 
 ---
 
 ## Final Model
+After several trials, we decided to use DecisionTreeRegressor as our model. The reason is that Decision Trees can capture nonlinear relationships between features and the response variable `rating`. This is beneficial because the preparation time, average rating, and the final rating of a recipe is not linear based on the plots we draw. Here are the features we chose:
+
+### **Description**
+<!-- <iframe src="assets/fig_average_rating.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/fig_num_rating.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/fig_average_user_rating.html" width=800 height=600 frameBorder=0></iframe> -->
+
+`recipe_average_rating`: For the average rating of a recipe, we want to examine if a recipe with higher rating would receive a higher rating from people. 
+
+`recipe_num_ratings`: For the number of ratings for each recipe, we want to study whether a recipe with a higher number of ratings possibly tends to receive higher ratings from people. 
+
+`user_average_rating`: For the user's average rating, we want to check if a person tends to give a higher rating just because he habitually gives high scores. 
+
+`minutes`: For the minutes, we want to see if a higher rating recipe needs more time to prepare generally.
 
 ## Fairness Analysis
 
