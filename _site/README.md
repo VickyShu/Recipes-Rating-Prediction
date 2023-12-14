@@ -12,20 +12,20 @@ In the culinary world, the balance between taste and health is a subject of much
 We chose `rating` as the response variable, which has five different classes from star one to star five. Understanding the rating of a recipe helps people to regulate their meals for better health.
 
 ### **Evaluation Metrics**
-To evaluate the model’s performance, we will use metrics such as RMSE. That’s because there are lots of outliers in our features, like lots of time to prepare recipes. So we choose RMSE because it is sensitive to outliers. It will give a higher error value, signaling that these points are not being predicted accurately.
+To evaluate the model’s performance, we will use metrics such as **RMSE**. That’s because there are lots of outliers in our features, like lots of time to prepare recipes. So we choose RMSE because it is sensitive to outliers. It will give a higher error value, signaling that these points are not being predicted accurately.
 
 
 ## Baseline Model
 
 ### Model Description
-In our baseline model, we intend to predict whether the rating is based on the average rating of the recipe and total minutes needed to prepare for a recipe. We will use `recipe_average_rating` and `log_minute` as features of our baseline Decision Tree Regressor model.
+In our baseline model, we intend to predict whether the `rating` is based on the average rating of the recipe and total minutes needed to prepare for a recipe. We will use `recipe_average_rating` and `log_minute` as features of our baseline Linear Regression model.
 
 ### Feature Transformations
 For this baseline model, we did not have any categorical features, so we did not need to use OneHotEncoder() or any other categorical transformations. 
 
-`recipe_average_rating`: This is a nominal feature. We just keep it as the raw integer value for simplicity. 
+`recipe_average_rating`: This is a ordinal feature. We just keep it as the raw integer value for simplicity. 
 
-`minutes`: This is another nominal feature. We decided to perform a transformation for it because we found that some recipes need a huge amount of time to prepare. Thus, we have to transform minutes by log to make it more suitable for prediction.
+`minutes`: This is a nominal feature. We decided to perform a transformation for it because we found that some recipes need a huge amount of time to prepare. Thus, we have to transform minutes by log to make it more suitable for prediction.
 
 <iframe src="assets/fig_minutes_rating.html" width=800 height=600 frameBorder=0></iframe>
 <iframe src="assets/fig_log_min.html" width=800 height=600 frameBorder=0></iframe>

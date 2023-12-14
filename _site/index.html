@@ -63,19 +63,19 @@
 <p>We chose <code class="language-plaintext highlighter-rouge">rating</code> as the response variable, which has five different classes from star one to star five. Understanding the rating of a recipe helps people to regulate their meals for better health.</p>
 
 <h3 id="evaluation-metrics"><strong>Evaluation Metrics</strong></h3>
-<p>To evaluate the model’s performance, we will use metrics such as RMSE. That’s because there are lots of outliers in our features, like lots of time to prepare recipes. So we choose RMSE because it is sensitive to outliers. It will give a higher error value, signaling that these points are not being predicted accurately.</p>
+<p>To evaluate the model’s performance, we will use metrics such as <strong>RMSE</strong>. That’s because there are lots of outliers in our features, like lots of time to prepare recipes. So we choose RMSE because it is sensitive to outliers. It will give a higher error value, signaling that these points are not being predicted accurately.</p>
 
 <h2 id="baseline-model">Baseline Model</h2>
 
 <h3 id="model-description">Model Description</h3>
-<p>In our baseline model, we intend to predict whether the rating is based on the average rating of the recipe and total minutes needed to prepare for a recipe. We will use <code class="language-plaintext highlighter-rouge">recipe_average_rating</code> and <code class="language-plaintext highlighter-rouge">log_minute</code> as features of our baseline Decision Tree Regressor model.</p>
+<p>In our baseline model, we intend to predict whether the <code class="language-plaintext highlighter-rouge">rating</code> is based on the average rating of the recipe and total minutes needed to prepare for a recipe. We will use <code class="language-plaintext highlighter-rouge">recipe_average_rating</code> and <code class="language-plaintext highlighter-rouge">log_minute</code> as features of our baseline Linear Regression model.</p>
 
 <h3 id="feature-transformations">Feature Transformations</h3>
 <p>For this baseline model, we did not have any categorical features, so we did not need to use OneHotEncoder() or any other categorical transformations.</p>
 
-<p><code class="language-plaintext highlighter-rouge">recipe_average_rating</code>: This is a nominal feature. We just keep it as the raw integer value for simplicity.</p>
+<p><code class="language-plaintext highlighter-rouge">recipe_average_rating</code>: This is a ordinal feature. We just keep it as the raw integer value for simplicity.</p>
 
-<p><code class="language-plaintext highlighter-rouge">minutes</code>: This is another nominal feature. We decided to perform a transformation for it because we found that some recipes need a huge amount of time to prepare. Thus, we have to transform minutes by log to make it more suitable for prediction.</p>
+<p><code class="language-plaintext highlighter-rouge">minutes</code>: This is a nominal feature. We decided to perform a transformation for it because we found that some recipes need a huge amount of time to prepare. Thus, we have to transform minutes by log to make it more suitable for prediction.</p>
 
 <iframe src="assets/fig_minutes_rating.html" width="800" height="600" frameborder="0"></iframe>
 <iframe src="assets/fig_log_min.html" width="800" height="600" frameborder="0"></iframe>
