@@ -43,8 +43,24 @@ Our model achieved a training RMSE of 0.3715 and a testing RMSE of 0.5147. This 
 ---
 
 ## Final Model
-First, we add one more feature, `user_average_rating` to our linear regression model to predict the ratings of recipes, and then we add another feature, `recipe_num_ratings`. Next we tried the DecisionTreeRegressor as our model. Then we tried the DecisionTreeRegressor with hyperparameters on `max_depth` and `min_samples_split` through GridSearch as our model. In this model, we tried 70 different combinations of hyperparameters. And lastly, we calculated and compared the **RMSE** of the testing sets for each model. We found the DecisionTreeRegressor with the best hyperparameter has the lowest RMSE, so we chose this to be our final model.
 
+### **Description**
+
+`recipe_num_ratings`: For the number of ratings for each recipe, we want to study whether a recipe with a higher number of ratings possibly tends to receive higher ratings from people. 
+
+`user_average_rating`: For the user's average rating, we want to check if a person tends to give a higher rating just because he habitually gives high scores. 
+
+### **Performance**
+
+In crafting our predictive model, we incorporated two additional features: `user_average_rating` and `recipe_num_ratings`. The inclusion of `user_average_rating` is predicated on the assumption that individual rating behaviors are consistent across multiple reviews. Thus, a user who tends to give higher ratings might similarly rate new recipes they encounter with high ratings. This feature captures the individual bias of users, which is fundamental to understanding the variability in recipe ratings.
+
+The second feature, `recipe_num_ratings`, is grounded in the theory of wisdom of the crowds, which proposes that the aggregate of information in groups results in decisions that are often better than could have been made by any single member of the group. This implies that recipes with a large number of ratings are likely to have a more reliable rating, indicating that a large number of ratings on one recipe tends to have a higher ratings than those with a smaller number of ratings.
+
+For our predictive modeling, we also tried the Decision Tree Regressor model, a non-linear model that is well-suited for capturing complex patterns in data which linear models might miss. Decision trees are particularly adept at modeling interactions between different features, which we hypothesized would be present in our dataset.
+
+Then we fine-tuned our model using GridSearch to optimize the hyperparameters `max_depth` and `min_samples_split`. This approach systematically works through multiple combinations of parameter tunes, cross-validating as it goes to determine which tune gives the best performance. We evaluated 70 different combinations, seeking to strike a balance between a model that is complex enough to learn the data well, but not so complex that it overfits.
+
+Next, we calculated and compared the **RMSE** of the testing sets for each model as the table shown below. We found the DecisionTreeRegressor with the best hyperparameter has the lowest RMSE, so we chose this to be our final model.
 
 | Metric | Test RMSE |
 |--------|-------------|
@@ -54,15 +70,7 @@ First, we add one more feature, `user_average_rating` to our linear regression m
 | 'RMSE for the DecisionTreeRegressor' | 0.43897293968980095 |
 | 'RMSE for the DecisionTreeRegressor with the best hyperparameter' | 0.3215798723839845 |
 
-
-### **Description**
-<!-- <iframe src="assets/fig_average_rating.html" width=800 height=600 frameBorder=0></iframe>
-<iframe src="assets/fig_num_rating.html" width=800 height=600 frameBorder=0></iframe>
-<iframe src="assets/fig_average_user_rating.html" width=800 height=600 frameBorder=0></iframe> -->
-
-`recipe_num_ratings`: For the number of ratings for each recipe, we want to study whether a recipe with a higher number of ratings possibly tends to receive higher ratings from people. 
-
-`user_average_rating`: For the user's average rating, we want to check if a person tends to give a higher rating just because he habitually gives high scores. 
+Our final model's performance was an improvement over our baseline model, which we can infer our baseline model was a simpler and a basic linear regression model without these additional features or a non-tuned decision tree. The final Decision Tree Regressor with optimal hyperparameters yielded the lowest RMSE on the testing set, indicating that it was the most accurate at predicting recipe ratings. The reduction in RMSE from the baseline to the final model signifies an enhancement in predictive accuracy, likely due to the model's increased complexity and ability to capture more subtle patterns within the data.
 
 
 ## Fairness Analysis

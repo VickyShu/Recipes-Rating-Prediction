@@ -23,7 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="/assets/css/style.css?v=2c0e836b8192518d8afab18a08679a8880adb6cb">
+    <link rel="stylesheet" href="/assets/css/style.css?v=fd3f0297963ce18b177c70b9d0d8eb182ca816bc">
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
 
 <!-- Setup Google Analytics -->
@@ -105,7 +105,24 @@
 <hr />
 
 <h2 id="final-model">Final Model</h2>
-<p>First, we add one more feature, <code class="language-plaintext highlighter-rouge">user_average_rating</code> to our linear regression model to predict the ratings of recipes, and then we add another feature, <code class="language-plaintext highlighter-rouge">recipe_num_ratings</code>. Next we tried the DecisionTreeRegressor as our model. Then we tried the DecisionTreeRegressor with hyperparameters on <code class="language-plaintext highlighter-rouge">max_depth</code> and <code class="language-plaintext highlighter-rouge">min_samples_split</code> through GridSearch as our model. In this model, we tried 70 different combinations of hyperparameters. And lastly, we calculated and compared the <strong>RMSE</strong> of the testing sets for each model. We found the DecisionTreeRegressor with the best hyperparameter has the lowest RMSE, so we chose this to be our final model.</p>
+
+<h3 id="description"><strong>Description</strong></h3>
+
+<p><code class="language-plaintext highlighter-rouge">recipe_num_ratings</code>: For the number of ratings for each recipe, we want to study whether a recipe with a higher number of ratings possibly tends to receive higher ratings from people.</p>
+
+<p><code class="language-plaintext highlighter-rouge">user_average_rating</code>: For the user’s average rating, we want to check if a person tends to give a higher rating just because he habitually gives high scores.</p>
+
+<h3 id="performance-1"><strong>Performance</strong></h3>
+
+<p>In crafting our predictive model, we incorporated two additional features: <code class="language-plaintext highlighter-rouge">user_average_rating</code> and <code class="language-plaintext highlighter-rouge">recipe_num_ratings</code>. The inclusion of <code class="language-plaintext highlighter-rouge">user_average_rating</code> is predicated on the assumption that individual rating behaviors are consistent across multiple reviews. Thus, a user who tends to give higher ratings might similarly rate new recipes they encounter with high ratings. This feature captures the individual bias of users, which is fundamental to understanding the variability in recipe ratings.</p>
+
+<p>The second feature, <code class="language-plaintext highlighter-rouge">recipe_num_ratings</code>, is grounded in the theory of wisdom of the crowds, which proposes that the aggregate of information in groups results in decisions that are often better than could have been made by any single member of the group. This implies that recipes with a large number of ratings are likely to have a more reliable rating, indicating that a large number of ratings on one recipe tends to have a higher ratings than those with a smaller number of ratings.</p>
+
+<p>For our predictive modeling, we also tried the Decision Tree Regressor model, a non-linear model that is well-suited for capturing complex patterns in data which linear models might miss. Decision trees are particularly adept at modeling interactions between different features, which we hypothesized would be present in our dataset.</p>
+
+<p>Then we fine-tuned our model using GridSearch to optimize the hyperparameters <code class="language-plaintext highlighter-rouge">max_depth</code> and <code class="language-plaintext highlighter-rouge">min_samples_split</code>. This approach systematically works through multiple combinations of parameter tunes, cross-validating as it goes to determine which tune gives the best performance. We evaluated 70 different combinations, seeking to strike a balance between a model that is complex enough to learn the data well, but not so complex that it overfits.</p>
+
+<p>Next, we calculated and compared the <strong>RMSE</strong> of the testing sets for each model as the table shown below. We found the DecisionTreeRegressor with the best hyperparameter has the lowest RMSE, so we chose this to be our final model.</p>
 
 <table>
   <thead>
@@ -138,14 +155,7 @@
   </tbody>
 </table>
 
-<h3 id="description"><strong>Description</strong></h3>
-<!-- <iframe src="assets/fig_average_rating.html" width=800 height=600 frameBorder=0></iframe>
-<iframe src="assets/fig_num_rating.html" width=800 height=600 frameBorder=0></iframe>
-<iframe src="assets/fig_average_user_rating.html" width=800 height=600 frameBorder=0></iframe> -->
-
-<p><code class="language-plaintext highlighter-rouge">recipe_num_ratings</code>: For the number of ratings for each recipe, we want to study whether a recipe with a higher number of ratings possibly tends to receive higher ratings from people.</p>
-
-<p><code class="language-plaintext highlighter-rouge">user_average_rating</code>: For the user’s average rating, we want to check if a person tends to give a higher rating just because he habitually gives high scores.</p>
+<p>Our final model’s performance was an improvement over our baseline model, which we can infer our baseline model was a simpler and a basic linear regression model without these additional features or a non-tuned decision tree. The final Decision Tree Regressor with optimal hyperparameters yielded the lowest RMSE on the testing set, indicating that it was the most accurate at predicting recipe ratings. The reduction in RMSE from the baseline to the final model signifies an enhancement in predictive accuracy, likely due to the model’s increased complexity and ability to capture more subtle patterns within the data.</p>
 
 <h2 id="fairness-analysis">Fairness Analysis</h2>
 
