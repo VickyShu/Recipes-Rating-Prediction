@@ -1,4 +1,4 @@
-# Recipes-Rating-Prediction
+# Recipes Rating Prediction
 
 **Authors**: Xin Shu, Chang Shu
 
