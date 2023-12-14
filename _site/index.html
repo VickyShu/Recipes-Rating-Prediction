@@ -23,7 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="/assets/css/style.css?v=2c0e836b8192518d8afab18a08679a8880adb6cb">
+    <link rel="stylesheet" href="/assets/css/style.css?v=fd3f0297963ce18b177c70b9d0d8eb182ca816bc">
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
 
 <!-- Setup Google Analytics -->
@@ -103,7 +103,38 @@
 <hr />
 
 <h2 id="final-model">Final Model</h2>
-<p>After several trials, we decided to use DecisionTreeRegressor as our model. The reason is that Decision Trees can capture nonlinear relationships between features and the response variable <code class="language-plaintext highlighter-rouge">rating</code>. This is beneficial because the preparation time, average rating, and the final rating of a recipe is not linear based on the plots we draw. Here are the features we chose:</p>
+<p>First, we add one more features to our linear regression model with totally three features to predict the ratings of recipes, and then we add two more features. Next we tried the DecisionTreeRegressor as our model, and then we tried the DecisionTreeRegressor with hyperparameter on <code class="language-plaintext highlighter-rouge">max_depth</code> and <code class="language-plaintext highlighter-rouge">min_samples_split</code> through GridSearch as our model. In this model, we tried 70 different combinations of hyperparameters. And lastly, we calculated and compared the <strong>RMSE</strong> of the testing sets for each model. We found the DecisionTreeRegressor with hyperparameter has the lowest RMSE, so we chose this to be our final model.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Test RMSE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>‘RMSE for regression with two features’</td>
+      <td>0.5147232717849082</td>
+    </tr>
+    <tr>
+      <td>‘RMSE for regression with three features’</td>
+      <td>0.3758448690196555</td>
+    </tr>
+    <tr>
+      <td>‘RMSE for regression with four features’</td>
+      <td>0.3758027040111092</td>
+    </tr>
+    <tr>
+      <td>‘RMSE for the DecisionTreeRegressor’</td>
+      <td>0.43897293968980095</td>
+    </tr>
+    <tr>
+      <td>‘RMSE for the DecisionTreeRegressor with the best hyperparameter’</td>
+      <td>0.3215798723839845</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="description"><strong>Description</strong></h3>
 <!-- <iframe src="assets/fig_average_rating.html" width=800 height=600 frameBorder=0></iframe>

@@ -41,7 +41,16 @@ Our model achieved a training RMSE of 0.3715 and a testing RMSE of 0.5147. This 
 ---
 
 ## Final Model
-After several trials, we decided to use DecisionTreeRegressor as our model. The reason is that Decision Trees can capture nonlinear relationships between features and the response variable `rating`. This is beneficial because the preparation time, average rating, and the final rating of a recipe is not linear based on the plots we draw. Here are the features we chose:
+First, we add one more features to our linear regression model with totally three features to predict the ratings of recipes, and then we add two more features. Next we tried the DecisionTreeRegressor as our model, and then we tried the DecisionTreeRegressor with hyperparameter on `max_depth` and `min_samples_split` through GridSearch as our model. In this model, we tried 70 different combinations of hyperparameters. And lastly, we calculated and compared the **RMSE** of the testing sets for each model. We found the DecisionTreeRegressor with hyperparameter has the lowest RMSE, so we chose this to be our final model.
+
+| Metric | Test RMSE |
+|--------|-------------|
+| 'RMSE for regression with two features' | 0.5147232717849082 |
+| 'RMSE for regression with three features' | 0.3758448690196555 |
+| 'RMSE for regression with four features' | 0.3758027040111092 |
+| 'RMSE for the DecisionTreeRegressor' | 0.43897293968980095 |
+| 'RMSE for the DecisionTreeRegressor with the best hyperparameter' | 0.3215798723839845 |
+
 
 ### **Description**
 <!-- <iframe src="assets/fig_average_rating.html" width=800 height=600 frameBorder=0></iframe>
