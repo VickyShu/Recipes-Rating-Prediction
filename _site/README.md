@@ -87,9 +87,11 @@ For this question, we divided our recipes into two different groups based on its
 - **Test Statistic:** The test statistic is the absolute difference in the RMSE between these two groups: high rating group (ratings of 5) and the low rating group (ratings below 5).
 - **Significance Level:** To ensure the accuracy of our conclusion, we decided to use a significance level of 5% as our significance level.
 
+We conduct the permutation test, shuffle the recipes with 5 stars column 1000 times, re-split it into two groups and calculate the absolute RMSE. The plot below shows the empirical distribution of our permuted test statistics in 1000 permutations, the red line indicates the observed test statistics which is 0.2197 (rounded to 4 decimal places) which is our RMSE.
+
 <iframe src="assets/fig_calories_empirical.html" width=800 height=600 frameBorder=0></iframe>
 
-We calculate our p-value is 0. Since the calculated p-value of 0 is smaller than the significance level α of 0.05, we reject the null hypothesis. We cannot say that our model is fair based on the p-value. 
+We calculate our p-value is 0. Since the calculated p-value of 0 is smaller than the significance level α of 0.05, we reject the null hypothesis. We cannot say that our model is fair based on our RMSE fairness analysis alone. 
 
 Therefore, we conclude that our model is not fair. Its prediction of recipes with 5 stars is different from recipes with 4 or less stars.
 
