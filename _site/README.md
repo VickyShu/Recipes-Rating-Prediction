@@ -84,7 +84,7 @@ For this question, we divided our recipes into two different groups based on its
 ### Permutation Test
 - **Null Hypothesis:** Our model is fair. Its prediction of recipes with 5 stars and the recipes with four or less stars are roughly the same, and any differences are likely due to chance.
 - **Alternative Hypothesis:** Our model is not fair. Its prediction of recipes with 5 stars is different from recipes with 4 or less stars.
-- **Test Statistic:** 
+- **Test Statistic:** The test statistic is the absolute difference in the RMSE between these two groups: high rating group (ratings of 5) and the low rating group (ratings below 5).
 - **Significance Level:** To ensure the accuracy of our conclusion, we decided to use a significance level of 5% as our significance level.
 
 <iframe src="assets/fig_calories_empirical.html" width=800 height=600 frameBorder=0></iframe>
