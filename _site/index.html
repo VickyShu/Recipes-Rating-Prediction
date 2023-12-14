@@ -73,15 +73,17 @@
 <h3 id="feature-transformations">Feature Transformations</h3>
 <p>For this baseline model, we did not have any categorical features, so we did not need to use OneHotEncoder() or any other categorical transformations.</p>
 
-<p><code class="language-plaintext highlighter-rouge">recipe_average_rating</code>: This is a ordinal feature. We just keep it as the raw integer value for simplicity.</p>
+<p><code class="language-plaintext highlighter-rouge">recipe_average_rating</code>: This is an ordinary feature. From the scatter plot, we can see that there is some relationship between the average rating and the rating, which is that higher average ratings tend to have higher ratings. We just keep it as the raw integer value for simplicity.</p>
 
-<p><code class="language-plaintext highlighter-rouge">minutes</code>: This is a nominal feature. We decided to perform a transformation for it because we found that some recipes need a huge amount of time to prepare. Thus, we have to transform minutes by log to make it more suitable for prediction.</p>
+<iframe src="assets/fig_average_rating.html" width="800" height="600" frameborder="0"></iframe>
+
+<p><code class="language-plaintext highlighter-rouge">minutes</code>: This is a nominal feature. First we plot the box plot below to see the relationship between minutes. We found that there are lots of recipes that have a long preparation time, which represents the outliers within each rating level. So we decided to use log transformation to transform minutes by log to make it more suitable for prediction. From the new scatter plot, we can see that the longest preparation time is around 15.</p>
 
 <iframe src="assets/fig_minutes_rating.html" width="800" height="600" frameborder="0"></iframe>
 <iframe src="assets/fig_log_min.html" width="800" height="600" frameborder="0"></iframe>
 
 <h3 id="performance">Performance</h3>
-<p>Our model achieved a training RMSE of 0.3715 and a testing RMSE of 0.5147. This level of accuracy indicates that the model has a reasonably good predictive capability. That is, if a recipe has a high average rating, it is more likely to receive similarly high ratings from new reviewers, keeping its high score. Our model’s performance corroborates this theory, following the tendency of recipes with higher ratings to maintain higher future ratings.</p>
+<p>Our model achieved a training RMSE of 0.3715 and a testing RMSE of 0.5147. This level of RMSE indicates that the model has a reasonably good predictive capability. That is, if a recipe has a high average rating, it is more likely to receive similarly high ratings from new reviewers, keeping its high score. Our model’s performance corroborates this theory, following the tendency of recipes with higher ratings to maintain higher future ratings.</p>
 
 <table>
   <thead>
