@@ -69,7 +69,9 @@ Next, we calculated and compared the **RMSE** of the testing sets for each model
 | 'RMSE for the DecisionTreeRegressor' | 0.43897293968980095 |
 | 'RMSE for the DecisionTreeRegressor with the best hyperparameter' | 0.3215798723839845 |
 
-Our final model's performance was an improvement over our baseline model, which we can infer our baseline model was a simpler and a basic linear regression model without these additional features or a non-tuned decision tree. The final Decision Tree Regressor with optimal hyperparameters yielded the lowest RMSE on the testing set, indicating that it was the most accurate at predicting recipe ratings. The reduction in RMSE from the baseline to the final model signifies an enhancement in predictive accuracy, likely due to the model's increased complexity and ability to capture more subtle patterns within the data.
+As we can see from the plot below, our final model's performance was an improvement over our baseline model, which we can infer our baseline model was a simpler and a basic linear regression model without these additional features or a non-tuned decision tree. The final Decision Tree Regressor with optimal hyperparameters yielded the lowest RMSE on the testing set, indicating that it was the most accurate at predicting recipe ratings. The reduction in RMSE from the baseline to the final model signifies an enhancement in predictive accuracy, likely due to the model's increased complexity and ability to capture more subtle patterns within the data.
+
+<iframe src="assets/fig.html" width=800 height=600 frameBorder=0></iframe>
 
 
 ## Fairness Analysis
