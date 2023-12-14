@@ -23,7 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="/assets/css/style.css?v=2c0e836b8192518d8afab18a08679a8880adb6cb">
+    <link rel="stylesheet" href="/assets/css/style.css?v=fd3f0297963ce18b177c70b9d0d8eb182ca816bc">
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
 
 <!-- Setup Google Analytics -->
@@ -157,6 +157,11 @@
 <p>As we can see from the plot below, our final model’s performance was an improvement over our baseline model, which we can infer our baseline model was a simpler and a basic linear regression model without these additional features or a non-tuned decision tree. The final Decision Tree Regressor with optimal hyperparameters yielded the lowest RMSE on the testing set, indicating that it was the most accurate at predicting recipe ratings. The reduction in RMSE from the baseline to the final model signifies an enhancement in predictive accuracy, likely due to the model’s increased complexity and ability to capture more subtle patterns within the data.</p>
 
 <h2 id="fairness-analysis">Fairness Analysis</h2>
+
+<p>In our pursuit of developing a fair and equitable predictive model for recipe ratings, we pose a critical question: Does our model demonstrate differential performance for recipes with perfect 5-star ratings as opposed to those rated 4 stars or below?
+For this question, we divided our recipes into two different groups based on its rating.
+<strong>GroupX:</strong> Recipes with 5-star ratings.
+<strong>GroupY:</strong> Recipes with ratings of 4 stars or below.</p>
 
 <h3 id="permutation-test">Permutation Test</h3>
 <ul>
