@@ -11,7 +11,7 @@ In the culinary world, the balance between taste and health is a subject of much
 ### **Response Variable**
 We chose `rating` as the response variable, which has five different classes from star one to star five. Understanding the rating of a recipe helps people to regulate their meals for better health.
 
-### **Evaluation Metrics**
+### **Evaluation Metric**
 To evaluate the model’s performance, we will use metrics such as **RMSE**. That’s because there are lots of outliers in our features, like lots of time to prepare recipes. So we choose RMSE because it is sensitive to outliers. It will give a higher error value, signaling that these points are not being predicted accurately.
 
 
