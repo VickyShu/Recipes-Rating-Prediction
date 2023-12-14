@@ -60,13 +60,10 @@ First, we add one more feature, `user_average_rating` to our linear regression m
 <iframe src="assets/fig_num_rating.html" width=800 height=600 frameBorder=0></iframe>
 <iframe src="assets/fig_average_user_rating.html" width=800 height=600 frameBorder=0></iframe> -->
 
-`recipe_average_rating`: For the average rating of a recipe, we want to examine if a recipe with higher rating would receive a higher rating from people. 
-
 `recipe_num_ratings`: For the number of ratings for each recipe, we want to study whether a recipe with a higher number of ratings possibly tends to receive higher ratings from people. 
 
 `user_average_rating`: For the user's average rating, we want to check if a person tends to give a higher rating just because he habitually gives high scores. 
 
-`minutes`: For the minutes, we want to see if a higher rating recipe needs more time to prepare generally.
 
 ## Fairness Analysis
 
