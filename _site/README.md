@@ -88,4 +88,9 @@ For this question, we divided our recipes into two different groups based on its
 - **Significance Level:** To ensure the accuracy of our conclusion, we decided to use a significance level of 5% as our significance level.
 
 <iframe src="assets/fig_calories_empirical.html" width=800 height=600 frameBorder=0></iframe>
+
+We calculate our p-value is 0. Since the calculated p-value of 0 is smaller than the significance level α of 0.05, we reject the null hypothesis. We cannot say that our model is fair based on the p-value. 
+
+Therefore, we conclude that our model is not fair. Its prediction of recipes with 5 stars is different from recipes with 4 or less stars.
+
 ---
