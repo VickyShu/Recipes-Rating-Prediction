@@ -72,8 +72,6 @@ Next, we calculated and compared the **RMSE** of the testing sets for each model
 <iframe src="assets/fig.html" width=800 height=600 frameBorder=0></iframe>
 As we can see from the plot below, our final model's performance was an improvement over our baseline model, which we can infer our baseline model was a simpler and a basic linear regression model without these additional features or a non-tuned decision tree. The final Decision Tree Regressor with optimal hyperparameters yielded the lowest RMSE on the testing set, indicating that it was the most accurate at predicting recipe ratings. The reduction in RMSE from the baseline to the final model signifies an enhancement in predictive accuracy, likely due to the model's increased complexity and ability to capture more subtle patterns within the data.
 
-
-
 ## Fairness Analysis
 
 In our pursuit of developing a fair and equitable predictive model for recipe ratings, we pose a critical question: Does our model demonstrate differential performance for recipes with perfect 5-star ratings as opposed to those rated 4 stars or below?
@@ -84,9 +82,10 @@ For this question, we divided our recipes into two different groups based on its
 **GroupY:** Recipes with ratings of 4 stars or below.
 
 ### Permutation Test
-- **Null Hypothesis:** Our model is fair. Its
-
-- **Alternative Hypothesis:** 
+- **Null Hypothesis:** Our model is fair. Its prediction of recipes with 5 stars and the recipes with four or less stars are roughly the same, and any differences are likely due to chance.
+- **Alternative Hypothesis:** Our model is not fair. Its prediction of recipes with 5 stars is different from recipes with 4 or less stars.
 - **Test Statistic:** 
 - **Significance Level:** To ensure the accuracy of our conclusion, we decided to use a significance level of 5% as our significance level.
+
+<iframe src="assets/fig_calories_empirical.html" width=800 height=600 frameBorder=0></iframe>
 ---
