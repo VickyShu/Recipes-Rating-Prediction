@@ -105,7 +105,9 @@
 <hr />
 
 <h2 id="final-model">Final Model</h2>
-<p>First, we add one more features to our linear regression model with totally three features to predict the ratings of recipes, and then we add two more features. Next we tried the DecisionTreeRegressor as our model, and then we tried the DecisionTreeRegressor with hyperparameter on <code class="language-plaintext highlighter-rouge">max_depth</code> and <code class="language-plaintext highlighter-rouge">min_samples_split</code> through GridSearch as our model. In this model, we tried 70 different combinations of hyperparameters. And lastly, we calculated and compared the <strong>RMSE</strong> of the testing sets for each model. We found the DecisionTreeRegressor with hyperparameter has the lowest RMSE, so we chose this to be our final model.</p>
+<p>First, we add one more feature, <code class="language-plaintext highlighter-rouge">user_average_rating</code>, to our linear regression model to predict the ratings of recipes, and then we add two more features, which are DecisionTreeRegressor, and DecisionTreeRegressor with hyperparameters on <code class="language-plaintext highlighter-rouge">max_depth</code> and <code class="language-plaintext highlighter-rouge">min_samples_split</code> through GridSearch. Thus, we have five features in total.</p>
+
+<p>In this model, we tried 70 different combinations of hyperparameters. And lastly, we calculated and compared the <strong>RMSE</strong> of the testing sets for each model. We found the DecisionTreeRegressor with hyperparameter has the lowest RMSE, so we chose this to be our final model.</p>
 
 <table>
   <thead>

@@ -43,7 +43,9 @@ Our model achieved a training RMSE of 0.3715 and a testing RMSE of 0.5147. This 
 ---
 
 ## Final Model
-First, we add one more features to our linear regression model with totally three features to predict the ratings of recipes, and then we add two more features. Next we tried the DecisionTreeRegressor as our model, and then we tried the DecisionTreeRegressor with hyperparameter on `max_depth` and `min_samples_split` through GridSearch as our model. In this model, we tried 70 different combinations of hyperparameters. And lastly, we calculated and compared the **RMSE** of the testing sets for each model. We found the DecisionTreeRegressor with hyperparameter has the lowest RMSE, so we chose this to be our final model.
+First, we add one more feature, `user_average_rating`, to our linear regression model to predict the ratings of recipes, and then we add two more features, which are DecisionTreeRegressor, and DecisionTreeRegressor with hyperparameters on `max_depth` and `min_samples_split` through GridSearch. Thus, we have five features in total. 
+
+In this model, we tried 70 different combinations of hyperparameters. And lastly, we calculated and compared the **RMSE** of the testing sets for each model. We found the DecisionTreeRegressor with hyperparameter has the lowest RMSE, so we chose this to be our final model.
 
 | Metric | Test RMSE |
 |--------|-------------|
