@@ -40,7 +40,6 @@ Our model achieved a training RMSE of 0.3715 and a testing RMSE of 0.5147. This 
 | 'RMSE' | 0.371539447765363 | 0.5147232717849082 |
 
 
----
 
 ## Final Model
 
@@ -54,11 +53,11 @@ Our model achieved a training RMSE of 0.3715 and a testing RMSE of 0.5147. This 
 
 In crafting our predictive model, we incorporated two additional features: `user_average_rating` and `recipe_num_ratings`. The inclusion of `user_average_rating` is predicated on the assumption that individual rating behaviors are consistent across multiple reviews. Thus, a user who tends to give higher ratings might similarly rate new recipes they encounter with high ratings. This feature captures the individual bias of users, which is fundamental to understanding the variability in recipe ratings.
 
-The second feature, `recipe_num_ratings`, is grounded in the theory of wisdom of the crowds, which proposes that the aggregate of information in groups results in decisions that are often better than could have been made by any single member of the group. This implies that recipes with a large number of ratings are likely to have a more reliable rating, indicating that a large number of ratings on one recipe tends to have a higher ratings than those with a smaller number of ratings.
+The second feature, `recipe_num_ratings`, is grounded in the theory of wisdom of the crowds, which states that the information collection in groups results in decisions that are often better than the decisions made by any single member of the group. This implies that recipes with a large number of ratings are likely to have a more reliable rating, indicating that a large number of ratings on one recipe tends to have higher ratings than those with a smaller number of ratings.
 
 For our predictive modeling, we also tried the Decision Tree Regressor model, a non-linear model that is well-suited for capturing complex patterns in data which linear models might miss. Decision trees are particularly adept at modeling interactions between different features, which we hypothesized would be present in our dataset.
 
-Then we fine-tuned our model using GridSearch to optimize the hyperparameters `max_depth` and `min_samples_split`. This approach systematically works through multiple combinations of parameter tunes, cross-validating as it goes to determine which tune gives the best performance. We evaluated 70 different combinations, seeking to strike a balance between a model that is complex enough to learn the data well, but not so complex that it overfits.
+Then we fine-tuned our model using GridSearch to optimize the hyperparameters `max_depth` and `min_samples_split`. This approach systematically works through multiple combinations of parameter tunes, cross-validating as it goes to determine which tune gives the best performance. We evaluated 70 different combinations, seeking to strike a balance between a model that is complex enough to learn the data well, but not so complex that it overfits. Finally, we got the best performance with the `max_depth` of 10 and the `min_samples_split` of 100.
 
 Next, we calculated and compared the **RMSE** of the testing sets for each model as the table shown below. We found the DecisionTreeRegressor with the best hyperparameter has the lowest RMSE, so we chose this to be our final model.
 
