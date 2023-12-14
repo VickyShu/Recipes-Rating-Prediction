@@ -87,6 +87,7 @@ For this question, we divided our recipes into two different groups based on its
 - **Null Hypothesis:** Our model is fair. Its
 
 - **Alternative Hypothesis:** 
-- **Test Statistic:** 
+- **Test Statistic:** The test statistic is the absolute difference in the RMSE between these two groups: high rating group (ratings of 5) and the low rating group (ratings below 5)
 - **Significance Level:** To ensure the accuracy of our conclusion, we decided to use a significance level of 5% as our significance level.
+
 ---
